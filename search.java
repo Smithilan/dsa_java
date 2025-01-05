@@ -1,53 +1,60 @@
 public class search {
 
     public static void main(String arg[]){
+
         int nums[] = {2,4,8,10,12};
-        int target = 12;
+        int target = 20;
 
-        int result =  leanerSearch(nums,target);
-        if(result == -1)
-            System.out.println("Element not found");
-        else
-            System.out.println("Element found at "  +  result);
-
-
-        int nums1[]={1,3,5,7,9,0};
-        int target1= 7;
-
-        int result1 = binarySearch(nums1,target1);
-
-        if(result1 == -1)
-            System.out.println("Element not found");
-        else
+        int result1 =  leanerSearch(nums,target);
+        if(result1 != -1)
             System.out.println("Element found at "  +  result1);
+        else
+            System.out.println("Element not found");
 
-
+        int result2 = binarySearch(nums,target);
+        if(result2 != -1)
+            System.out.println("Element found at "  +  result2);
+        else
+            System.out.println("Element not found");
     }
 
-    public static int binarySearch(int[] nums1, int target1) {
+    //leaner method
+    public static int leanerSearch(int[] nums, int target) {
+        int length = nums.length;
+        int step = 0;
+
+        for (int i=0; i< length ; i++){
+            step ++;
+            if(nums[i]==target) {
+                System.out.println("no of step taken for leaner search " + step);
+                return i;
+            }
+        }
+        System.out.println("no of step taken for leaner search " + step);
+        return -1;
+    }
+
+    //binary method
+    public static int binarySearch(int[] nums1, int target) {
         int left = 0;
         int right = nums1.length-1;
+        int step =0;
 
         while (left <= right) {
-            int mid = (left + right ) / 2;  // Avoids overflow
-
-            if (nums1[mid] == target1) {
+            step ++;
+            int mid = (left + right ) / 2;
+            if (nums1[mid] == target) {
+                System.out.println();
+                System.out.println("no of step taken for binary search " + step);
                 return mid;
-            } else if (nums1[mid] < target1) {
+            } else if (nums1[mid] < target) {
                 left = mid + 1;
             } else {
                 right = mid - 1;
             }
         }
-        return -1;
-    }
-
-    public static int leanerSearch(int[] nums, int target) {
-        int length = nums.length;
-        for (int i=0; i<= length-1 ; i++){
-            if(nums[i]==target)
-                return i ;
-        }
+        System.out.println();
+        System.out.println("no of step taken for binary search  " + step);
         return -1;
     }
 }
