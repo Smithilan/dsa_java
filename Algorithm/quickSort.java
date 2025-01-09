@@ -1,6 +1,6 @@
 public class quickSort {
 
-    public static void main(){
+    public static void main(String args[]){
 
         int[] nums = {1,9,8,35,6,89};
 
@@ -29,12 +29,17 @@ public class quickSort {
             int temp = 0;
             if (nums[j] < pivot) {
                 i++;
+                //main reason of this part the small elements than pivot move left side of pivot
+                // swap the nums[i+1],nums[j]
+                //because in above condition pass then nums[i+1]>nums[j] //  nums[j]<pivot<nums[i+1]
                 temp = nums[j];
                 nums[j] = nums[i];
                 nums[i] = temp;
             }
         }
 
+        // its happen after first iteration then high(pivot) and nums[i+1] swap
+        //partition the array and set the new pivot for right sub array
         int temp = nums[i + 1];
         nums[i + 1] = nums[high];
         nums[high] = temp;
