@@ -1,3 +1,5 @@
+package Algorithm;
+
 public class slectionSort {
 
     public static void main(String args[]) {

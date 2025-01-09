@@ -1,3 +1,5 @@
+package Algorithm;
+
 public class search {
 
     public static void main(String arg[]){
@@ -26,11 +28,11 @@ public class search {
         for (int i=0; i< length ; i++){
             step ++;
             if(nums[i]==target) {
-                System.out.println("no of step taken for leaner search " + step);
+                System.out.println("no of step taken for leaner Algorithm.search " + step);
                 return i;
             }
         }
-        System.out.println("no of step taken for leaner search " + step);
+        System.out.println("no of step taken for leaner Algorithm.search " + step);
         return -1;
     }
 
@@ -45,7 +47,7 @@ public class search {
             int mid = (left + right ) / 2;
             if (nums1[mid] == target) {
                 System.out.println();
-                System.out.println("no of step taken for binary search " + step);
+                System.out.println("no of step taken for binary Algorithm.search " + step);
                 return mid;
             } else if (nums1[mid] < target) {
                 left = mid + 1;
@@ -54,7 +56,7 @@ public class search {
             }
         }
         System.out.println();
-        System.out.println("no of step taken for binary search  " + step);
+        System.out.println("no of step taken for binary Algorithm.search  " + step);
         return -1;
     }
 }
